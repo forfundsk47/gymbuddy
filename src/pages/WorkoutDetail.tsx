@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Plus } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -18,11 +18,20 @@ const WorkoutDetail = () => {
   const { title } = useParams();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [exercises, setExercises] = useState<Exercise[]>([]);
-  const [selectedMuscle, setSelectedMuscle] = useState<string>("");
+
+  // Load exercises from localStorage when component mounts
+  useEffect(() => {
+    const savedExercises = localStorage.getItem(`workout-${title}`);
+    if (savedExercises) {
+      setExercises(JSON.parse(savedExercises));
+    }
+  }, [title]);
 
   const handleSaveMuscleExercises = (muscle: string, newExercises: Exercise[]) => {
-    setExercises((prevExercises) => [...prevExercises, ...newExercises]);
-    setSelectedMuscle(muscle);
+    const updatedExercises = [...exercises, ...newExercises];
+    setExercises(updatedExercises);
+    // Save to localStorage
+    localStorage.setItem(`workout-${title}`, JSON.stringify(updatedExercises));
     toast.success("Exercises added successfully!");
   };
 
