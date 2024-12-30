@@ -9,12 +9,12 @@ interface WorkoutCardProps {
 
 const WorkoutCard = ({ title, duration, exercises }: WorkoutCardProps) => {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-shadow bg-secondary text-white">
       <CardHeader>
         <CardTitle className="text-lg font-semibold">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="flex justify-between text-sm text-gray-600">
+        <div className="flex justify-between text-sm text-white/80">
           <div className="flex items-center">
             <Clock className="h-4 w-4 mr-1" />
             <span>{duration}</span>
