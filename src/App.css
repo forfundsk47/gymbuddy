@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Hide scrollbar but keep functionality */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Add padding to bottom of main content to account for music player */
+.min-h-screen {
+  padding-bottom: 5rem;
+}
