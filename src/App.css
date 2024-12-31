@@ -64,3 +64,25 @@ body {
 [data-theme='dark'] .bg-secondary {
   background-color: rgba(110, 89, 165, 0.8);
 }
+
+/* Remove white corners from cards */
+.rounded-lg {
+  background-color: rgba(110, 89, 165, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+/* Ensure card corners match background */
+.rounded-lg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 1px;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), transparent);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
