@@ -53,5 +53,14 @@
 
 /* Add padding to bottom of main content to account for music player */
 .min-h-screen {
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
+}
+
+/* Ensure no white corners in dark mode */
+body {
+  background-color: #1A1F2C;
+}
+
+[data-theme='dark'] .bg-secondary {
+  background-color: rgba(110, 89, 165, 0.8);
 }
