@@ -9,7 +9,7 @@ interface WorkoutCardProps {
 
 const WorkoutCard = ({ title, duration, exercises }: WorkoutCardProps) => {
   return (
-    <Card className="hover:shadow-lg transition-shadow bg-[#6E59A5] text-white">
+    <Card className="hover:shadow-lg transition-shadow bg-secondary text-white">
       <CardHeader>
         <CardTitle className="text-lg font-semibold">{title}</CardTitle>
       </CardHeader>
